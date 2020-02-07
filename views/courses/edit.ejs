@@ -1,0 +1,38 @@
+    <div class="data-form">
+      <form class="form-signin" method="POST" action="<%=`/courses/${course._id}/update?_method=PUT`%>">
+        <h2 class="form-signing-heading">Edit user:</h2>
+
+        <label for="inputTitle">Title</label>
+        <input type="text" name="title" id="inputTitle" class="form-control"
+        value="<%= course.title %>"
+        placeholder="Title" required autofocus>
+
+        <label for="inputDescription">Description</label>
+        <input type="text" name="description" id="inputDescription" class="form-control"
+        value="<%= course.description %>"
+        placeholder="Description" required>
+
+        <label for="inputEventType">Venue</label>
+        <input type="text" name="eventType" id="inputEventType" class="form-control"
+        value="<%= course.eventType %>"
+        placeholder="Event Type">
+
+        <label for="inputTime">Time</label>
+        <input type="text" name="time" id="inputTime" class="form-control"
+        value="<%= course.time %>"
+        placeholder="time">
+
+        <label for="inputVenue">Venue</label>
+        <input type="text" name="venue" id="inputVenue" class="form-control"
+        value="<%= course.venue %>"
+        placeholder="Venue">
+
+        <label for="inputCost">Cost</label>
+        <input type="text" name="cost" id="inputCost" class="form-control"
+        value="<%= course.cost %>"
+        placeholder="cost">
+
+      <button type="submit" class="btn btn-lg btn-primary btn-block">Update</button>
+      </form>
+
+    </div>

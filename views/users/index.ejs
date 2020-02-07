@@ -1,0 +1,27 @@
+<h2>Instructors</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>From</th>
+      <th>Number of events to participate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% instructors.forEach(user => { %>
+      <tr>
+        <td><%= user.fullName %></td>
+        <td><%= user.email %></td>
+        <td><%= user.from %></td>
+        <% if(currentUser) { %>
+          <td><a href="<%= `/users/${user._id}/showTrainings` %>">
+            <%= user.courses.length %>
+          </a></td>
+        <% }  else {%>
+        <td><%= user.courses.length %></td>
+        <% } %>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>

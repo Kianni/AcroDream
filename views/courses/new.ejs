@@ -1,0 +1,35 @@
+<div class="data-form">
+  <form class="form-signin" action="/courses/create/" method="POST">
+
+    <h2 class="form-signin-heading">Create a new event:</h2>
+
+    <label for="inputTitle">Title</label>
+    <input type="text" name="title" id="inputTitle" class="form-control"
+    placeholder="Title" required autofocus>
+
+    <input type="text" name="organizer" value="<%= currentUser.fullName %>" style="display: none;">
+
+    <label for="inputDescription">Description</label>
+    <input type="text" name="description" id="inputDescription" class="form-control"
+    placeholder="Description" required>
+
+    <label for="inputTime">Time</label>
+    <input type="text" name="time" id="inputTime" class="form-control"
+    placeholder="time">
+
+    <label for="inputVenue">Venue</label>
+    <input type="text" name="venue" id="inputVenue" class="form-control"
+    placeholder="venue">
+
+    <% if(currentUser.master == false) { %>
+      <input type="text" name="cost" value="free" style="display: none;">
+      <input type="text" name="eventType" value="JAM" style="display: none;">
+    <% } else { %>
+      <input type="text" name="cost" value="$100" style="display: none;">
+      <input type="text" name="eventType" value="WORKSHOP" style="display: none;">
+  <%  }%>
+
+    <button type="submit" class="btn btn-lg btn-primary btn-block">Create new course</button>
+  </form>
+
+</div>

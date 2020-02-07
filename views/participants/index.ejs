@@ -1,0 +1,27 @@
+<h2>Participants</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>From</th>
+      <th>Number of events to participate</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% participants.forEach(acroyogi => { %>
+      <tr>
+        <td><%= acroyogi.fullName %></td>
+        <td><%= acroyogi.email %></td>
+        <td><%= acroyogi.from %></td>
+        <% if(currentUser) { %>
+          <td><a href="<%= `/users/${acroyogi._id}/showTrainings` %>">
+            <%= acroyogi.courses.length %>
+          </a></td>
+        <% }  else {%>
+        <td><%= acroyogi.courses.length %></td>
+        <% } %>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>

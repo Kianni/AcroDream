@@ -1,0 +1,19 @@
+<h2><%= usersName %> will participate to: </h2>
+<table class="table">
+  <% if(events.length > 0) {
+    events.forEach(event => { %>
+
+        <tr>
+          <td><a href="<%= `/courses/${event._id}` %>">
+            <%= event.title %>
+          </a></td>
+          <td><%= event.time %></td>
+        </tr>
+
+    <% });
+  } else { %>
+    some training for sure but has not decided yet!
+  <% } %>
+
+
+</table>

@@ -1,0 +1,23 @@
+<h2><%= eventTitle %> joined by: </h2>
+<table class="table">
+  <% if(participants.length > 0) {
+    participants.forEach(participant => { %>
+
+        <tr>
+          <td><%= participant.fullName %>,
+            <% if(participant.master == true) { %>
+              <span style="font-style: italic">instructor
+            <% } else { %>
+              <span style="font-style: italic">participant
+            <% } %>
+               from</span></td>
+          <td><%= participant.from %></td>
+        </tr>
+
+    <% });
+  } else { %>
+    nobody yet!
+  <% } %>
+
+
+</table>

@@ -1,0 +1,27 @@
+<h2 class="center">Trainings</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Event Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% courses.forEach(course => { %>
+      <tr>
+        <td><a href="<%= `/courses/${course._id}` %>">
+          <%= course.title %>
+        </a></td>
+        <td><%= course.description %></td>
+        <td><%= course.eventType %></td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
+
+<% if (currentUser) { %>
+  <div>
+    <button><a href="/courses/new">Create new course</a></button>
+  </div>
+<% } %>

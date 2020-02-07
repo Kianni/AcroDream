@@ -1,0 +1,57 @@
+<h1>Your profile, <%= user.fullName %></h1>
+
+<table class="table">
+  <tr>
+    <th>First Name</th>
+    <td><%= user.name.first %></td>
+  </tr>
+  <tr>
+    <th>Last Name</th>
+    <td><%= user.name.last %></td>
+  </tr>
+  <tr>
+    <th>Level of skills</th>
+    <% if(user.master === true) { %>
+      <td><strong>Instructor</strong></td>
+    <% } else { %>
+      <td><strong>Participant</strong></td>
+    <% } %>
+  </tr>
+  <tr>
+    <th>Events I have joined: </th>
+    <td><a href="<%= `/users/${user._id}/showTrainings` %>">
+      <%= user.courses.length %>
+    </a></td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td><%= user.email %></td>
+  </tr>
+  <tr>
+    <th>From</th>
+    <td><%= user.from %></td>
+  </tr>
+
+</table>
+
+<% if (user.subscribedAccount) { %>
+<h4 class="center"> This user has a
+<a href="<%=`/subscribers/${user.subscribedAccount}` %>">
+    subscribed account</a>
+  </h4>
+<% } %>
+
+<div>
+  <a class="button" href="/courses/new">Organize new event</a>
+</div>
+
+<div>
+  <a class="button" href="<%= `/users/${user._id}/edit`%>">Edit User Details</a>
+</div>
+
+<div>
+  <a class="button" href="<%= `/users/${user._id}/delete?_method=DELETE` %>"
+    onclick="return confirm('Really want to delete profile?')">
+    Delete
+  </a>
+</div>
