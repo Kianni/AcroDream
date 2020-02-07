@@ -1,5 +1,5 @@
 # AcroDream
-simple application for devoted communistes. 
+simple application for devoted communities. 
 
 Functionalities:
 - users can create, update and delete own profile
