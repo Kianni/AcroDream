@@ -1,0 +1,38 @@
+process.env.NODE_ENV = "test";
+
+const User = require("../models/user"),
+  { expect } = require("chai");
+
+require("../main");
+
+beforeEach(done => {
+  User.remove({})
+    .then(() => {
+      done();
+    });
+});
+
+describe("SAVE user", () => {
+  it("it should save one user", (done) => {
+    let testUser = new User({
+      name: {
+        first: "Robert",
+        last: "Moonlight"
+      },
+      master: true,
+      email: "moon@light.still",
+      from: "Seatle"
+    });
+    testUser.save()
+      .then(() => {
+        User.find({})
+          .then(result => {
+            expect(result.length)
+              .to.eq(1);
+            expect(result[0])
+              .to.have.property("_id");
+            done();
+          });
+      });
+  });
+});
